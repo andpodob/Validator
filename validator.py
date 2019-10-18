@@ -29,10 +29,10 @@ for filename in os.listdir(solutions):
     path = solutions+filename
     fp = open(path)
     first_line = fp.readline()
-    #fp.close()
+    fp.close()
     if first_line[0] == 'c':
         expected = ''.join(filter(str.isdigit, first_line))
-        output = Popen(["python",sys.argv[2], path],stdout=PIPE)
+        output = Popen(["python3",sys.argv[2], path],stdout=PIPE)
         response = int(output.communicate()[0])
         expected = int(expected)
         if response == expected:
